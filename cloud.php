@@ -1,70 +1,104 @@
-<?php
-header('Content-Type: text/html; charset=utf-8');
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <title>DataSpace — презентация</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-    body {{ font-family: Arial, Helvetica, sans-serif; background:#f7f7f7; color:#111; padding:20px; }}
-    .slide {{ background: white; border-radius:8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); margin:20px auto; padding:20px; max-width:1000px; }}
-    .title {{ font-size:22px; font-weight:700; margin-bottom:10px; }}
-    .content {{ font-size:16px; line-height:1.45; white-space:pre-wrap; }}
-    .meta {{ color:#666; font-size:13px; margin-top:12px; }}
-    footer {{ text-align:center; color:#999; font-size:13px; margin-top:30px; }}
-  </style>
+    <meta charset="UTF-8">
+    <title>Презентация DataSpace</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 800px; margin: 20px auto; padding: 0 20px; }
+        h1, h2, h3 { color: #0056b3; }
+        .section { margin-bottom: 2em; }
+        .authors { list-style: none; padding: 0; }
+        .certificates { list-style-type: square; }
+        .component { margin-bottom: 1em; }
+    </style>
 </head>
 <body>
-  <h1>DataSpace — презентация (автоматически сгенерированная)</h1>
-  <?php
-$slides = [
-  {
-    "title": "Enterprise-Grade облачная инфраструктура для профессионалов DataSpace",
-    "content": "Презентацию подготовили: студенты 3-ИАИТ-103 — Беляев Роман, Гальков Александр, Мельник Игорь. Самара, 2025 г."
-  },
-  {
-    "title": "Кто мы?",
-    "content": "DataSpace — ведущий российский оператор коммерческих ЦОДов и облачных сервисов, обеспечивающий непрерывность корпоративной ИТ-инфраструктуры уже 12 лет без простоев. Компания оперирует 1 152 стойками, общей площадью 6 565 м², поддерживает SLA до 100% на colocation и 99,95% для облака. В экосистеме задействованы 43 оператора связи."
-  },
-  {
-    "title": "Вычислительные ресурсы",
-    "content": "Облачная платформа DataSpace Cloud предлагает публичные, частные и гибридные облачные решения с SLA 99,95%, оборудована высококлассным железом, поддерживает схемы резервирования N+1 и подключена к более чем 40 операторам связи."
-  },
-  {
-    "title": "Надёжность и безопасность",
-    "content": "Установленный уровень доступности: SLA colocation 100%, SLA cloud 99,95%. ЦОД оснащён двойными источниками энергии, системами охлаждения, противопожарной защитой и безопасностью, автоматизированной системой управления зданием, NOVEC 1230."
-  },
-  {
-    "title": "Архитектура платформы",
-    "content": "ЦОД DataSpace сертифицирован по стандарту Uptime Institute Tier III Gold, соответствует требованиям ISO 9001:2015, PCI DSS, а также 152-ФЗ."
-  },
-  {
-    "title": "BaaS",
-    "content": "Услуга на базе продуктов Veeam: создание, хранение и восстановление резервных копий ВМ в DataSpace Cloud. Восстановление ВМ через техподдержку или Veeam Self-Service Backup Portal."
-  },
-  {
-    "title": "IaaS",
-    "content": "Услуга на основе серверного/сетевого оборудования и ПО VMware: предоставляется Виртуальный Дата Центр (vDC) с пулом вычислительных ресурсов и дискового пространства, управление через VMware Cloud Director."
-  },
-  {
-    "title": "Ценовая политика",
-    "content": "DataSpace работает по модели B2B — цены обсуждаются индивидуально и не публикуются в открытом доступе."
-  },
-  {
-    "title": "Система защиты DataSpace Cloud",
-    "content": "Аттестат соответствия подтверждает соответствие требованиям безопасности информации для систем защиты персональных данных 3-го уровня защищенности (УЗ-3) в соответствии с Приказом ФСТЭК России от 18.02.2013 № 21."
-  }
-];
-foreach ($slides as $i => $s) {
-    echo '<section class="slide">';
-    echo '<div class="title">' . htmlspecialchars($s['title'], ENT_QUOTES, 'UTF-8') . '</div>';
-    echo '<div class="content">' . nl2br(htmlspecialchars($s['content'], ENT_QUOTES, 'UTF-8')) . '</div>';
-    echo '<div class="meta">Слайд ' . ($i+1) . ' из ' . count($slides) . '</div>';
-    echo '</section>';
-}
-?>
-  <footer>Сгенерировано автоматически из DataSpace.pptx</footer>
+    <div class="container">
+        <?php
+        $xml = simplexml_load_file('dataspace.xml');
+        ?>
+
+        <header class="section">
+            <h1><?php echo $xml->about->title; ?></h1>
+            <h2><?php echo $xml->about->name; ?></h2>
+            <p><strong>Презентацию подготовили студенты группы <?php echo $xml->about->group; ?>:</strong></p>
+            <ul class="authors">
+                <?php foreach ($xml->about->authors->author as $author): ?>
+                    <li><?php echo $author; ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <p><em><?php echo $xml->about->location; ?>, <?php echo $xml->about->year; ?></em></p>
+        </header>
+
+        <section class="section">
+            <h2><?php echo $xml->who_we_are->title; ?></h2>
+            <p><?php echo $xml->who_we_are->description; ?></p>
+            <h3><?php echo $xml->who_we_are->computing_resources->title; ?></h3>
+            <p><?php echo $xml->who_we_are->computing_resources->content; ?></p>
+            <h3><?php echo $xml->who_we_are->reliability_and_security->title; ?></h3>
+            <p><?php echo $xml->who_we_are->reliability_and_security->content; ?></p>
+            <h3><?php echo $xml->who_we_are->services_summary->title; ?></h3>
+            <p><?php echo $xml->who_we_are->services_summary->content; ?></p>
+        </section>
+
+        <section class="section">
+            <h2><?php echo $xml->platform_architecture->title; ?></h2>
+            <p><?php echo $xml->platform_architecture->certification; ?></p>
+            <h3>Сертификаты:</h3>
+            <ul class="certificates">
+                <?php foreach ($xml->platform_architecture->certificates->certificate as $certificate): ?>
+                    <li><?php echo $certificate; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Услуги</h2>
+            <div class="service">
+                <h3><?php echo $xml->services->baas->title; ?></h3>
+                <p><?php echo $xml->services->baas->description; ?></p>
+                <h4>Возможности:</h4>
+                <?php foreach ($xml->services->baas->features->feature as $feature): ?>
+                    <div class="component">
+                        <strong><?php echo $feature->name; ?>:</strong> <?php echo $feature->tool; ?>
+                        <?php if (isset($feature->details)): ?>
+                            <p><small><?php echo $feature->details; ?></small></p>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="service">
+                <h3><?php echo $xml->services->iaas->title; ?></h3>
+                <p><?php echo $xml->services->iaas->description; ?></p>
+                 <h4>Компоненты:</h4>
+                <?php foreach ($xml->services->iaas->components->component as $component): ?>
+                    <div class="component">
+                        <strong><?php echo $component->name; ?>:</strong> <?php echo $component->function; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><?php echo $xml->pricing_policy->title; ?></h2>
+            <p><?php echo $xml->pricing_policy->statement; ?></p>
+        </section>
+
+        <section class="section">
+            <h2><?php echo $xml->security_system->title; ?></h2>
+            <p><?php echo $xml->security_system->attestation; ?></p>
+            <h3>Компоненты системы защиты:</h3>
+            <h4>Сегмент управления:</h4>
+            <ul>
+                <?php foreach ($xml->security_system->components->management_segment->component as $component): ?>
+                    <li><?php echo $component; ?></li>
+                <?php endforeach; ?>
+            </ul>
+             <h4>Клиентский сегмент:</h4>
+            <p><?php echo $xml->security_system->components->client_segment->description; ?></p>
+        </section>
+
+    </div>
 </body>
 </html>

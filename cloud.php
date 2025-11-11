@@ -20,19 +20,19 @@
         // Включаем отображение ошибок XML для отладки
         libxml_use_internal_errors(true);
 
+        // Указываем ПРАВИЛЬНОЕ имя XML-файла
         $xml_file = 'cloud.xml';
         $xml = simplexml_load_file($xml_file);
 
-        // --- НАЧАЛО БЛОКА ПРОВЕРКИ ОШИБОК ---
+        // Проверяем, удалось ли загрузить файл
         if ($xml === false) {
             echo "<div class='error'>";
             echo "<h1>Ошибка загрузки XML</h1>";
-            echo "<p>Не удалось прочитать файл '<strong>" . $xml_file . "</strong>'.</p>";
-            echo "<p><strong>Возможные причины:</strong></p>";
+            echo "<p>Не удалось прочитать файл '<strong>" . htmlspecialchars($xml_file) . "</strong>'.</p>";
+            echo "<p><strong>Убедитесь, что:</strong></p>";
             echo "<ul>";
-            echo "<li>Файл `dataspace.xml` не находится в той же папке, что и `index.php`.</li>";
-            echo "<li>У PHP нет прав на чтение файла `dataspace.xml`.</li>";
-            echo "<li>Файл `dataspace.xml` содержит синтаксические ошибки.</li>";
+            echo "<li>Файл `cloud.xml` находится в той же папке, что и `cloud.php`.</li>";
+            echo "<li>Файл `cloud.xml` не пустой и содержит корректный XML.</li>";
             echo "</ul>";
             echo "<h4>Технические детали:</h4>";
             foreach(libxml_get_errors() as $error) {
@@ -40,9 +40,8 @@
             }
             echo "</div>";
             libxml_clear_errors();
-            exit; // Прекращаем выполнение скрипта, так как данных нет
+            exit; // Прекращаем выполнение
         }
-        // --- КОНЕЦ БЛОКА ПРОВЕРКИ ОШИБОК ---
         ?>
 
         <header class="section">

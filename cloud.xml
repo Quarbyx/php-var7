@@ -1,58 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?>
-<presentation>
-  <source file="DataSpace.pptx" />
-  <slide index="1">
-    <title>Enterprise-Grade облачная инфраструктура для профессионалов DataSpace</title>
-    <content><![CDATA[
-Презентацию подготовили: студенты 3-ИАИТ-103 — Беляев Роман, Гальков Александр, Мельник Игорь. Самара, 2025 г.
-    ]]></content>
-  </slide>
-  <slide index="2">
+<?xml version="1.0" encoding="UTF-8"?>
+<dataspace>
+  <about>
+    <title>Enterprise-Grade облачная инфраструктура для профессионалов</title>
+    <name>DataSpace</name>
+    <authors>
+      <author>Беляев Роман</author>
+      <author>Гальков Александр</author>
+      <author>Мельник Игорь</author>
+    </authors>
+    <group>3-ИАИТ-103</group>
+    <location>Самара</location>
+    <year>2025</year>
+  </about>
+
+  <who_we_are>
     <title>Кто мы?</title>
-    <content><![CDATA[
-DataSpace — ведущий российский оператор коммерческих ЦОДов и облачных сервисов, обеспечивающий непрерывность корпоративной ИТ-инфраструктуры уже 12 лет без простоев. Компания оперирует 1 152 стойками, общей площадью 6 565 м², поддерживает SLA до 100% на colocation и 99,95% для облака. В экосистеме задействованы 43 оператора связи.
-    ]]></content>
-  </slide>
-  <slide index="3">
-    <title>Вычислительные ресурсы</title>
-    <content><![CDATA[
-Облачная платформа DataSpace Cloud предлагает публичные, частные и гибридные облачные решения с SLA 99,95%, оборудована высококлассным железом, поддерживает схемы резервирования N+1 и подключена к более чем 40 операторам связи.
-    ]]></content>
-  </slide>
-  <slide index="4">
-    <title>Надёжность и безопасность</title>
-    <content><![CDATA[
-Установленный уровень доступности: SLA colocation 100%, SLA cloud 99,95%. ЦОД оснащён двойными источниками энергии, системами охлаждения, противопожарной защитой и безопасностью, автоматизированной системой управления зданием, NOVEC 1230.
-    ]]></content>
-  </slide>
-  <slide index="5">
+    <description>
+      DataSpace — ведущий российский оператор коммерческих ЦОДов и облачных сервисов, обеспечивающий непрерывность корпоративной ИТ-инфраструктуры уже 12 лет без простоев. Компания оперирует 1152 стойками, общей площадью 6 565 м², поддерживает SLA до 100% на colocation и 99,95% для облака. Кроме того, в экосистеме задействованы 43 оператора связи.
+    </description>
+    <computing_resources>
+      <title>Вычислительные ресурсы</title>
+      <content>
+        Облачная платформа DataSpace Cloud предлагает публичные, частные и гибридные облачные решения с SLA 99,95%, оборудована высококлассным железом, поддерживает схемы резервирования N+1 и подключена к более чем 40 операторам связи для высокой связности.
+      </content>
+    </computing_resources>
+    <reliability_and_security>
+      <title>Надежность и безопасность</title>
+      <content>
+        Установленный уровень доступности: SLA colocation 100%, SLA cloud 99,95%. ЦОД оснащён двойными источниками энергии, системами охлаждения, противопожарной защитой и безопасностью — например, автоматизированной системой управления зданием, NOVEC 1230.
+      </content>
+    </reliability_and_security>
+    <services_summary>
+      <title>Предлагаемые услуги</title>
+      <content>
+        DataSpace предлагает инфраструктуру как услугу (IaaS) в виде публичных/частных/гибридных облаков, colocation, а также управляемые сервисы InfoSec и облачные инструменты защиты — NGFW, SIEM и др.
+      </content>
+    </services_summary>
+  </who_we_are>
+
+  <platform_architecture>
     <title>Архитектура платформы</title>
-    <content><![CDATA[
-ЦОД DataSpace сертифицирован по стандарту Uptime Institute Tier III Gold, соответствует требованиям ISO 9001:2015, PCI DSS, а также 152-ФЗ.
-    ]]></content>
-  </slide>
-  <slide index="6">
-    <title>BaaS</title>
-    <content><![CDATA[
-Услуга на базе продуктов Veeam: создание, хранение и восстановление резервных копий ВМ в DataSpace Cloud. Восстановление ВМ через техподдержку или Veeam Self-Service Backup Portal.
-    ]]></content>
-  </slide>
-  <slide index="7">
-    <title>IaaS</title>
-    <content><![CDATA[
-Услуга на основе серверного/сетевого оборудования и ПО VMware: предоставляется Виртуальный Дата Центр (vDC) с пулом вычислительных ресурсов и дискового пространства, управление через VMware Cloud Director.
-    ]]></content>
-  </slide>
-  <slide index="8">
+    <certification>
+      ЦОД DataSpace сертифицирован по стандарту Uptime Institute Tier III Gold, соответствует требованиям ISO 9001:2015, PCI DSS, а также 152-ФЗ.
+    </certification>
+    <certificates>
+      <certificate>Uptime Institute Certified GOLD - Operations (Expires 9 June 2026)</certificate>
+      <certificate>Uptime Institute Certified - Facility (September 30, 2011)</certificate>
+      <certificate>TÜV AUSTRIA - EN ISO 9001:2015</certificate>
+    </certificates>
+  </platform_architecture>
+
+  <services>
+    <baas>
+      <title>BaaS</title>
+      <description>
+        Услуга на базе продуктов компании Veeam, предоставляющая возможность создания, хранения и восстановления резервных копий виртуальных машин, развернутых в DataSpace Cloud. Услуга гарантирует восстановление виртуальных машин по запросу в техническую поддержку или самостоятельно через портал самообслуживания – Veeam Self-Service Backup Portal.
+      </description>
+      <features>
+        <feature>
+          <name>Резервное копирование и восстановление</name>
+          <tool>Veeam Backup &amp; Replication server</tool>
+        </feature>
+        <feature>
+          <name>Портал самообслуживания</name>
+          <tool>Veeam Self-Service Backup Portal</tool>
+          <details>Самостоятельная настройка заданий резервного копирования и восстановления.</details>
+        </feature>
+      </features>
+    </baas>
+    <iaas>
+      <title>IaaS</title>
+      <description>
+        Услуга на основе совокупности функционирующего серверного и сетевого оборудования, программного обеспечения компании VMware, в рамках которой предоставляется Виртуальный Дата Центр (vDC) с пулом вычислительных ресурсов и дискового пространства для размещения виртуальных машин, шаблонов, медиафайлов, виртуальных сетей и управления ими. Услуга реализована на основе консоли управления виртуальными ресурсами VMware Cloud Director.
+      </description>
+      <components>
+        <component>
+          <name>VMware Cloud Director</name>
+          <function>Управление виртуальными ресурсами.</function>
+        </component>
+        <component>
+          <name>ESXi</name>
+          <function>Разделяет ресурсы физического сервера между виртуальными машинами.</function>
+        </component>
+        <component>
+          <name>СХД (NETAPP AFF)</name>
+          <function>Система хранения данных.</function>
+        </component>
+        <component>
+          <name>Кластер виртуализации</name>
+          <function>Обеспечивает отказоустойчивость.</function>
+        </component>
+      </components>
+    </iaas>
+  </services>
+
+  <pricing_policy>
     <title>Ценовая политика</title>
-    <content><![CDATA[
-DataSpace работает по модели B2B — цены обсуждаются индивидуально и не публикуются в открытом доступе.
-    ]]></content>
-  </slide>
-  <slide index="9">
+    <statement>
+      Поскольку компания DataSpace работает с партнерами по принципу B2B, ценники на услуги обсуждаются индивидуально и не раскрываются в открытом доступе.
+    </statement>
+  </pricing_policy>
+
+  <security_system>
     <title>Система защиты DataSpace Cloud</title>
-    <content><![CDATA[
-Аттестат соответствия подтверждает соответствие требованиям безопасности информации для систем защиты персональных данных 3-го уровня защищенности (УЗ-3) в соответствии с Приказом ФСТЭК России от 18.02.2013 № 21.
-    ]]></content>
-  </slide>
-</presentation>
+    <attestation>
+      Аттестат соответствия облачной инфраструктуры DataSpace Cloud подтверждает соответствие системы защиты облачной инфраструктуры требованиям безопасности информации, предъявляемым к системам защиты персональных данных 3-го уровня защищенности (УЗ-3) в соответствии с Приказом ФСТЭК России от 18.02.2013 № 21.
+    </attestation>
+    <components>
+      <management_segment>
+        <component>Система защиты и управления виртуализацией инфраструктуры</component>
+        <component>Система межсетевого экранирования и обнаружения вторжений</component>
+        <component>Система мониторинга и реагирования на события информационной безопасности</component>
+        <component>Система антивирусной защиты</component>
+        <component>Система контроля и анализа защищенности</component>
+        <component>Система резервного копирования</component>
+        <component>Система защиты от несанкционированного доступа</component>
+      </management_segment>
+      <client_segment>
+        <description>Изолированные виртуальные машины для каждого клиента.</description>
+      </client_segment>
+    </components>
+  </security_system>
+
+</dataspace>

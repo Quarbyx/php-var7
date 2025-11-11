@@ -20,7 +20,7 @@
         // Включаем отображение ошибок XML для отладки
         libxml_use_internal_errors(true);
 
-        $xml_file = 'dataspace.xml';
+        $xml_file = 'cloud.xml';
         $xml = simplexml_load_file($xml_file);
 
         // --- НАЧАЛО БЛОКА ПРОВЕРКИ ОШИБОК ---
